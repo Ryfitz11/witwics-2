@@ -10,7 +10,8 @@
 // output: 4
 
 function returnIndex(arr, str) {
-  // TODO your code here
+  return (arr.indexOf(str))
+
 }
 
 //-------------------------------------------
@@ -23,7 +24,7 @@ function returnIndex(arr, str) {
 // output: true
 
 function hasName(arr, name) {
-  // TODO your code here
+  return arr.includes(name)
 }
 
 //-------------------------------------------
@@ -43,7 +44,12 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
-  // TODO YOUR CODE HERE
+  let found = staff.find(s => s.id == id)
+  if (found) {
+    return found
+  } else {
+    return "No user with that id."
+  }
 }
 
 //-------------------------------------------
@@ -70,7 +76,9 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
-  // TODO YOUR CODE HERE
+
+  let member = theBand.members.find(m => m.name.includes(name))
+  return `${member.name} is in the band and plays the ${member.instrument}`
 }
 
 //-------------------------------------------
@@ -106,5 +114,12 @@ let flights = [{
 }]
 
 function flightCost(destination, firstClass) {
-  // TODO YOUR CODE HERE
+  for (let i = 0; i < flights.length; i++) {
+    if (destination.toUpperCase() == flights[i].to) {
+      if (firstClass == true) {
+        return flights[i].prices.firstClass
+      }
+      else { return flights[i].prices.standard }
+    }
+  }
 }
